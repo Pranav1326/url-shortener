@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="./styles.css" type="text/css">
+</head>
+<body>
+    <div class="container">
+        <h1>URL Shortener</h1>
+        
+        <!-- Tabs -->
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="showTab('shorten')">Shorten URL</button>
+            <button class="tab-btn" onclick="showTab('myurls')">My URLs</button>
+            <button class="tab-btn" onclick="showTab('login')">Login</button>
+            <button class="tab-btn" onclick="showTab('register')">Register</button>
+        </div>
+
+        <!-- url tab -->
+        <div id="shorten" class="tab-content active">
+            <input id="urlInput" placeholder="Enter a long URL to shorten" />
+            <button onclick="shorten()">Shorten URL</button>
+            <div id="resultContainer">
+                <p id="result"></p>
+                <button id="copyButton" class="copy-button" onclick="copyToClipboard()" style="display: none;">Copy</button>
+            </div>
+        </div>
+
+        <!-- my urls tab -->
+        <div id="myurls" class="tab-content">
+            <h2>My Shortened URLs</h2>
+            <button onclick="loadUserUrls()" class="refresh-btn">Refresh URLs</button>
+            <div id="urlsContainer">
+                <p id="urlsMessage">Click "Refresh URLs" to load your shortened URLs</p>
+                <div id="urlsList"></div>
+            </div>
+        </div>
+
+        <!-- login -->
+        <div id="login" class="tab-content">
+            <h2>Login to Your Account</h2>
+            <input id="loginEmail" type="email" placeholder="Enter your email" />
+            <input id="loginPassword" type="password" placeholder="Enter your password" />
+            <button onclick="loginUser()">Login</button>
+            <div id="loginResult" class="auth-result"></div>
+        </div>
+
+        <!-- register -->
+        <div id="register" class="tab-content">
+            <h2>Create New Account</h2>
+            <input id="registerEmail" type="email" placeholder="Enter your email" />
+            <input id="registerPassword" type="password" placeholder="Create a password" />
+            <input id="confirmPassword" type="password" placeholder="Confirm your password" />
+            <button onclick="registerUser()">Register</button>
+            <div id="registerResult" class="auth-result"></div>
+        </div>
+    </div>
+    <script src="/script.js"></script>
+</body>
+</html>
